@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-const HarvardMuseum = () => {
+const HarvardMuseum = ({ info, records }) => {
+    console.log(info, 'harvardmuseum')
     return (
         <div>
-            hello
-            {/* {info.totalrecords} */}
-            {/* {records.map(record => {
+            Exhibitions ({info.totalrecords})
+            {records.map(record => {
                     return (
                         <div key={record.id} className='row flex-container exhibition-box'>
                             <div className='column'>
@@ -19,12 +19,12 @@ const HarvardMuseum = () => {
                             </div>
                         </div>
                     )
-                })} */}
+                })}
         </div>
     )
 }
 
-export default (HarvardMuseum)
+export default connect(state => state)(HarvardMuseum)
 
 // class HarvardMuseum extends Component {
 //     constructor() {
