@@ -16,51 +16,45 @@
 
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import { HashRouter, Route } from 'react-router-dom';
-import Infos from './components/Infos'
-import Records from './components/Records'
+import { connect, Provider } from 'react-redux';
+import { HashRouter, Route, Routes, Link } from 'react-router-dom';
+import store, { fetchExhibitions } from './store'
+import Home from './components/Home';
+import HarvardMuseum from './components/HarvardMuseum';
+import HarvardMuseumExhibition from './components/HarvardMuseumExhibition';
+import Infos from './components/Infos';
+import Records from './components/Records';
 
-class App extends Component {
-    constructor() {
-        super();
-        this.state = {
-            infos: [],
-            records: []
-        }
-    }
-    async componentDidMount() {
-        try {
-          fetch('https://api.harvardartmuseums.org/exhibition?venue=HAM&status=current&hasimage=1&apikey=8e787d5e-154a-4abd-877c-06d4c150ee6a&size=100')
-            .then(res => res.json())
-            .then((data) => {
-                this.setState({ infos: data.info, records: data.records })
-                console.log(data.info, 'info', data.records, 'records')
-            })
-        }
-        catch(ex) {
-            console.log(ex)
-        }
-    }
+const App = connect(
+    state => state,
+    // (dispatch) => {
+    //     return {
+    //         bootstrap: async() => {
+    //             dispatch(fetchExhibitions)
+    //         }
+    //     }
+    // }
+)(class App extends Component {
+    // async componentDidMount() {
+    //     this.props.bootstrap();
+    // }
     render() {
         return (
             <div>
-                <div>
-                    {/* <h5>Exhibition Location</h5>
-                    <h5>Base Image Url:</h5> */}
-                    <Route path='/infos' component={Infos} />
-                    <Route path='/records' component={Records} />
-                </div>
-                {/* <div>
-                    <h5>Title</h5>
-                    <p>Century:</p>
-                    <p>Technique:</p>
-                </div> */}
-            </div>
+                <h1 className='title'><Link to='/'>Meet Me at the Spot</Link></h1>
+                 <Routes>
+                     <Route path='/' exact element={<Home />} />
+                     <Route path='/harvardmuseum' element={<HarvardMuseum />} />
+                     <Route path='/harvardmuseum/:id' element={<HarvardMuseumExhibition />} />
+                 </Routes>
+             </div>
         )
     }
-}
+})
 
-render(<HashRouter>
+render(<Provider store={store}>
+    <HashRouter>
         <App />
-    </HashRouter>, 
+    </HashRouter>
+    </Provider>, 
     document.querySelector('#root'));
