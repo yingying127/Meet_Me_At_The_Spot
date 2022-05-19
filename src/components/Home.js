@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-const Home = ({ }) => {
+const Home = () => {
     return (
         <div className='homepage'>
             <div className='row flex-container museum-box'>
