@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const HarvardMuseum = ({ info, records }) => {
@@ -27,7 +26,7 @@ const HarvardMuseum = ({ info, records }) => {
     )
 }
 
-export default connect(state => state)(HarvardMuseum)
+export default (HarvardMuseum)
 
 // class HarvardMuseum extends Component {
 //     constructor() {

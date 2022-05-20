@@ -1,9 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 const HarvardMuseumExhibition = ({ records, match }) => {
     const record = records?.filter(record => record.id === match.params.id*1)
-    console.log(record, 'record')
+    // console.log(record, 'record')
     return (
         <div>
             {record?.map(info => {
@@ -11,10 +10,9 @@ const HarvardMuseumExhibition = ({ records, match }) => {
                     <div key={ info.id }>
                         <a href={ info.url } target='_blank'><h2>Exhibition {info.title}</h2></a>
                         <h2>
-                            Curated by <span />
-                            { info.people.length > 1 ? 
-                                info.people.map(person => person.name).join(' and ')
-                                : info.people.map(person => person.name)
+                            { info.people?.length > 1 ? 
+                                'Curated By ' + info.people?.map(person => person.name).join(' and ')
+                                : info.people?.map(person => person.name)
                             }
                         </h2>
                         <p>Available at Harvard Art Museum between {info.begindate} through {info.enddate}</p>
@@ -27,7 +25,7 @@ const HarvardMuseumExhibition = ({ records, match }) => {
     )
 }
 
-export default connect(state => state)(HarvardMuseumExhibition)
+export default (HarvardMuseumExhibition)
 
 // import React, { Component } from 'react';
 // import { connect } from 'react-redux';

@@ -20,13 +20,16 @@ import { Route, Switch, Link, Redirect } from 'react-router-dom'
 import Home from './Home';
 import HarvardMuseum from './HarvardMuseum';
 import HarvardMuseumExhibition from './HarvardMuseumExhibition';
+import ArtInstituteOfChicago from './ArtInstituteOfChicago';
+import ArtInstituteOfChicagoExhibition from './ArtInstituteOfChicagoExhibition';
 
 class Routes extends Component {
     constructor() {
         super();
         this.state = {
             harvard: [],
-            chicago: []
+            chicago: [],
+            test: []
         }
     }
     componentDidMount() {
@@ -35,17 +38,17 @@ class Routes extends Component {
         .then((data) => {
             this.setState({ harvard: data })
         })
-        fetch('https://api.artic.edu/api/v1/exhibitions?is_featured')
+        fetch('https://api.artic.edu/api/v1/exhibitions/search?query[term][is_featured]=true&limit=50&fields=id,title,aic_end_at,aic_start_at,image_url,short_description,web_url,artist_ids,artworks_ids,artwork_titles,is_featured/manifest.json')
         .then(res => res.json())
         .then((data) => {
             this.setState({ chicago: data })
-            console.log(data, 'chicago')
         })
         .catch(console.log)
         
     }
     render() {
         const { info, records } = this.state.harvard;
+        const { pagination, data } = this.state.chicago
         return (
             <div>
                 <h1 className='title'><Link to='/home'>Meet Me at the Spot</Link></h1>
@@ -59,7 +62,12 @@ class Routes extends Component {
                     <Route exact path='/harvardmuseum/:id'>
                         {({match}) => <HarvardMuseumExhibition records={records} match={match} />}
                     </Route>
-                    
+                    <Route exact path='/aic'>
+                        <ArtInstituteOfChicago pagination={pagination} data={data} />
+                    </Route>
+                    <Route exact path='/aic/:id'>
+                        {({match}) => <ArtInstituteOfChicagoExhibition data={data} match={match} />}
+                    </Route>
                     <Redirect to='/home' />
                 </Switch>
             </div>

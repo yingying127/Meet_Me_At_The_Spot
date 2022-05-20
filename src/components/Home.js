@@ -15,7 +15,7 @@ const Home = () => {
                 </div>
                 <div className='row flex-container museum-box'>
                     <div className='column column-right'>
-                        <Link to='/cooperhewitt'>
+                        <Link to='/aic'>
                             <div className='bg-layer'>
                                 <h2>The Art Institute of Chicago</h2>
                             </div>
