@@ -25,21 +25,27 @@ class Routes extends Component {
     constructor() {
         super();
         this.state = {
-            info: [],
-            records: [],
-            data: []
+            harvard: [],
+            chicago: []
         }
     }
     componentDidMount() {
         fetch('https://api.harvardartmuseums.org/exhibition?venue=HAM&status=current&hasimage=1&apikey=8e787d5e-154a-4abd-877c-06d4c150ee6a&size=50')
         .then(res => res.json())
         .then((data) => {
-            this.setState({ data: data })
+            this.setState({ harvard: data })
+        })
+        fetch('https://api.artic.edu/api/v1/exhibitions?is_featured')
+        .then(res => res.json())
+        .then((data) => {
+            this.setState({ chicago: data })
+            console.log(data, 'chicago')
         })
         .catch(console.log)
+        
     }
     render() {
-        const { info, records } = this.state.data;
+        const { info, records } = this.state.harvard;
         return (
             <div>
                 <h1 className='title'><Link to='/home'>Meet Me at the Spot</Link></h1>

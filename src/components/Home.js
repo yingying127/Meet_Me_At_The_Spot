@@ -13,13 +13,15 @@ const Home = () => {
                         </div>
                     </Link>
                 </div>
-                {/* <div className='column column-right'>
-                    <Link to='/cooperhewitt'>
-                        <div className='bg-layer'>
-                            <h2>Cooper Hewitt Museum</h2>
-                        </div>
-                    </Link>
-                </div> */}
+                <div className='row flex-container museum-box'>
+                    <div className='column column-right'>
+                        <Link to='/cooperhewitt'>
+                            <div className='bg-layer'>
+                                <h2>The Art Institute of Chicago</h2>
+                            </div>
+                        </Link>
+                    </div>
+                </div>
             </div>
         </div>
     )

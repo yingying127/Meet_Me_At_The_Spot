@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 const HarvardMuseumExhibition = ({ records, match }) => {
     const record = records?.filter(record => record.id === match.params.id*1)
