@@ -1,3 +1,21 @@
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
+const HarvardMuseumExhibition = ({ records, match }) => {
+    console.log(match, 'exhibition', records, 'record')
+    // const record = records.map(record => record.id)
+    // const record = records.filter(record => record.id === match.params.id*1)
+    // console.log(record, 'final record')
+    return (
+        <div>
+            Exhibition 
+        </div>
+    )
+}
+
+export default connect(state => state)(HarvardMuseumExhibition)
+
 // import React, { Component } from 'react';
 // import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom';

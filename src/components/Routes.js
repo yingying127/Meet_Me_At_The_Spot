@@ -16,7 +16,8 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Link, Redirect } from 'react-router-dom'
+import Home from './Home';
 import HarvardMuseum from './HarvardMuseum';
 import HarvardMuseumExhibition from './HarvardMuseumExhibition';
 
@@ -33,20 +34,27 @@ class Routes extends Component {
         fetch('https://api.harvardartmuseums.org/exhibition?venue=HAM&status=current&hasimage=1&apikey=8e787d5e-154a-4abd-877c-06d4c150ee6a&size=50')
         .then(res => res.json())
         .then((data) => {
-            this.setState({ data: data})
-            console.log(data, 'componentdidmount')
+            this.setState({ data: data })
         })
         .catch(console.log)
     }
     render() {
         const { info, records } = this.state.data;
-        console.log(info, 'render state')
         return (
             <div>
+                <h1 className='title'><Link to='/home'>Meet Me at the Spot</Link></h1>
                 <Switch>
+                    <Route path='/home'>
+                        <Home />
+                    </Route>
                     <Route exact path='/harvardmuseum'>
                         <HarvardMuseum info={info} records={records} />
                     </Route>
+                    <Route exact path='/harvardmuseum/:id'>
+                        {({match}) => <HarvardMuseumExhibition records={records} match={match} />}
+                    </Route>
+                    
+                    <Redirect to='/home' />
                 </Switch>
             </div>
         )

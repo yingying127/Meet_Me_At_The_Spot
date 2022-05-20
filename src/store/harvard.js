@@ -5,6 +5,11 @@ const _fetchExhibitions = (exhibitions) => ({ type: FETCH_EXHIBITIONS, exhibitio
 export const fetchExhibitions = () => {
     return async(dispatch) => {
         try {
+            fetch('https://api.harvardartmuseums.org/exhibition?venue=HAM&status=current&hasimage=1&apikey=8e787d5e-154a-4abd-877c-06d4c150ee6a&size=100')
+            .then(res => res.json())
+            .then((data) => {
+            dispatch(_fetchExhibitions({ data: data }))
+            })
             // rest.get("https://api.harvardartmuseums.org/object", {
             //     query: {
             //         apikey: "8e787d5e-154a-4abd-877c-06d4c150ee6a",

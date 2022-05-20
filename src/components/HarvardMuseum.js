@@ -3,11 +3,15 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const HarvardMuseum = ({ info, records }) => {
-    console.log(info, 'harvardmuseum')
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
+    var yyyy = today.getFullYear();
+    today = mm + '/' + dd + '/' + yyyy;
     return (
         <div>
-            Exhibitions ({info.totalrecords})
-            {records.map(record => {
+            Current Exhibitions({info?.totalrecords}) as of {today}
+            {records?.map(record => {
                     return (
                         <div key={record.id} className='row flex-container exhibition-box'>
                             <div className='column'>

@@ -1,16 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { Router } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import history from "./history";
-import App from "./App";
+import Routes from './components/Routes';
 import store from "./store";
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={history}>
-      <App />
-    </Router>
+    <HashRouter history={history}>
+      <Routes />
+    </HashRouter>
   </Provider>,
   document.getElementById("app")
 );
