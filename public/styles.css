@@ -25,7 +25,7 @@ a {
 }
 
 .museum-box .column-left {
-    background: url("/images/hardvard.png");
+    background: url("/images/harvard.png");
     background-size: cover;
     background-position: center;
 }
@@ -52,11 +52,12 @@ a {
 }
 
 /** Exhibitions **/
-.exhibition-box .column {
-    width: 25%;
+.exhibition-box {
+    display: flex;
+    flex-direction: column;
 }
 
-.exhibition-box h2 {
-    color: #ffffff;
-    text-align: center;
+img {
+    width: 250px;
+    height: auto;
 }

@@ -3,13 +3,27 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const HarvardMuseumExhibition = ({ records, match }) => {
-    console.log(match, 'exhibition', records, 'record')
-    // const record = records.map(record => record.id)
-    // const record = records.filter(record => record.id === match.params.id*1)
-    // console.log(record, 'final record')
+    const record = records?.filter(record => record.id === match.params.id*1)
+    console.log(record, 'record')
     return (
         <div>
-            Exhibition 
+            {record?.map(info => {
+                return (
+                    <div key={ info.id }>
+                        <a href={ info.url } target='_blank'><h2>Exhibition {info.title}</h2></a>
+                        <h2>
+                            Curated by <span />
+                            { info.people.length > 1 ? 
+                                info.people.map(person => person.name).join(' and ')
+                                : info.people.map(person => person.name)
+                            }
+                        </h2>
+                        <p>Available at Harvard Art Museum between {info.begindate} through {info.enddate}</p>
+                        <img src={info.images.map(image => image.baseimageurl)} />
+                        <p>{info.poster.caption}</p>
+                    </div>
+                )
+            })}
         </div>
     )
 }

@@ -3,22 +3,21 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const HarvardMuseum = ({ info, records }) => {
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0');
-    var yyyy = today.getFullYear();
+    let today = new Date();
+    const dd = String(today.getDate()).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const yyyy = today.getFullYear();
     today = mm + '/' + dd + '/' + yyyy;
     return (
         <div>
-            Current Exhibitions({info?.totalrecords}) as of {today}
+            <h2>Current Exhibitions({info?.totalrecords}) as of {today}</h2>
             {records?.map(record => {
                     return (
-                        <div key={record.id} className='row flex-container exhibition-box'>
-                            <div className='column'>
+                        <div key={record.id}>
+                            <div className='exhibition box'>
                                 <Link to={`/harvardmuseum/${record.id}`}>
-                                    <div className='bg-layer'>
-                                        <h2>{record.title}</h2>
-                                    </div>
+                                    <h2>{ record.title }</h2>
+                                    <img src={record.images.map(image => image.baseimageurl)}></img>
                                 </Link>
                             </div>
                         </div>
