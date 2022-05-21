@@ -22,6 +22,8 @@ import HarvardMuseum from './HarvardMuseum';
 import HarvardMuseumExhibition from './HarvardMuseumExhibition';
 import ArtInstituteOfChicago from './ArtInstituteOfChicago';
 import ArtInstituteOfChicagoExhibition from './ArtInstituteOfChicagoExhibition';
+import CooperHewitt from './CooperHewitt';
+import Met from './Met';
 
 class Routes extends Component {
     constructor() {
@@ -80,6 +82,12 @@ class Routes extends Component {
                     </Route>
                     <Route exact path='/aic/:id'>
                         {({match}) => <ArtInstituteOfChicagoExhibition data={data} match={match} />}
+                    </Route>
+                    <Route exact path='/cooperhewitt'>
+                        <CooperHewitt />
+                    </Route>
+                    <Route exact path='/met'>
+                        <Met />
                     </Route>
                     <Redirect to='/home' />
                 </Switch>
