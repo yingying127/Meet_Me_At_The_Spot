@@ -23,6 +23,10 @@ a {
     color: black;
 }
 
+p {
+    margin: 0 0 .5rem 0;
+}
+
 /** Home Page **/
 .flex-container {
     display: flex;
@@ -94,6 +98,24 @@ a {
     text-align: center;
     margin: 0 0 1rem 0;
     font-style: oblique;
+    text-decoration:overline;
+    text-decoration-color: cornflowerblue;
+    text-decoration-thickness: 3px;
+}
+
+.exhibitionsp {
+    text-align: center;
+}
+
+.exhibitionssmall {
+    font-size: smaller;
+    padding: 0 300px 0 300px;
+    margin: 0;
+}
+
+.exhibitionsimage {
+    width: 700px;
+    height: auto;
 }
 
 .record {

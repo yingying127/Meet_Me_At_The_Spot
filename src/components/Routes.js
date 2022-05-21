@@ -37,7 +37,7 @@ class Routes extends Component {
         .then(res => res.json())
         .then((data) => {
             this.setState({ harvard: data })
-            console.log(data.records, 'harvard')
+            // console.log(data.records, 'harvard')
         })
         fetch('https://api.artic.edu/api/v1/exhibitions/search?query[term][is_featured]=true&limit=50&fields=id,title,aic_end_at,aic_start_at,image_url,short_description,web_url,artist_ids,artworks_ids,artwork_titles,is_featured/manifest.json')
         .then(res => res.json())

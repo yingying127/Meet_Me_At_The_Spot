@@ -9,26 +9,29 @@ const HarvardMuseumExhibition = ({ records, match }) => {
             <div>
                 <h1 className='title'>Meet Me at the <Link to='/home'>
                     <span className='title-spot'> Spot</span></Link>
-                    <span>   Harvard Art Museum Exhibitions</span>
+                    <span>   <Link to='/harvardmuseum'>Harvard Art Museum</Link> Exhibitions</span>
                 </h1>
             </div>
-            {record?.map(info => {
-                return (
-                    <div key={ info.id }>
-                        
-                        <a href={ info.url } target='_blank'><h2 className='exhibitions2'> {info.title}</h2></a>
-                        <p>
-                            { info.people?.length > 1 ? 
-                                'Curated By ' + info.people?.map(person => person.name).join(' and ')
-                                : info.people?.map(person => person.name)
-                            }
-                        </p>
-                        <p>Available at Harvard Art Museum between {info.begindate} through {info.enddate}</p>
-                        <img src={info.images.map(image => image.baseimageurl)} />
-                        <p>{info.poster.caption}</p>
-                    </div>
-                )
-            })}
+            <div>
+                {record?.map(info => {
+                    return (
+                        <div key={ info.id }>
+                            <a href={ info.url } target='_blank'><h2 className='exhibitions2'> {info.title}</h2></a>
+                            <div className='exhibitionsp'>
+                                <p>
+                                    { info.people?.length > 1 ? 
+                                        'Curated by ' + info.people?.map(person => person.name).join(' and ')
+                                        : info.people?.map(person => person.name)
+                                    }
+                                </p>
+                                <p>Available at Harvard Art Museum between {info.begindate} through {info.enddate}</p>
+                                <img className='exhibitionsimage' src={info.images.map(image => image.baseimageurl)} />
+                                <p className='exhibitionssmall'>{info.poster.caption}</p>
+                            </div>
+                        </div>
+                    )
+                })}
+            </div>
         </div>
     )
 }

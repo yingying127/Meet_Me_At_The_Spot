@@ -22,7 +22,7 @@ const HarvardMuseum = ({ info, records }) => {
                         <div className='container' key={record.id}>
                             <Link to={`/harvardmuseum/${record.id}`}>
                                 <img src={record.images.map(image => image.baseimageurl)}></img>
-                                <div class='overlay'>
+                                <div className='overlay'>
                                 <h2 className='centered'>{ record.title }</h2>
                                 </div>
                             </Link>
