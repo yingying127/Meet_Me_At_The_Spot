@@ -17,16 +17,19 @@ const HarvardMuseumExhibition = ({ records, match }) => {
                     return (
                         <div key={ info.id }>
                             <a href={ info.url } target='_blank'><h2 className='exhibitions2'> {info.title}</h2></a>
-                            <div className='exhibitionsp'>
-                                <p>
-                                    { info.people?.length > 1 ? 
+                            <div className='exhibitions-container'>
+                                <div>
+                                    <p className='exhibitions-text'>{ info.people?.length > 1 ? 
                                         'Curated by ' + info.people?.map(person => person.name).join(' and ')
-                                        : info.people?.map(person => person.name)
-                                    }
-                                </p>
-                                <p>Available at Harvard Art Museum between {info.begindate} through {info.enddate}</p>
-                                <img className='exhibitionsimage' src={info.images.map(image => image.baseimageurl)} />
-                                <p className='exhibitionssmall'>{info.poster.caption}</p>
+                                        : 'Curated by ' + info.people?.map(person => person.name)
+                                    }</p>
+                                    <p className='exhibitions-texts'>Available at Harvard Art Museum between</p>
+                                    <p className='exhibitions-texts'>{info.begindate} through {info.enddate}</p>
+                                </div>
+                                <div>
+                                    <img className='exhibitionsimage' src={info.images.map(image => image.baseimageurl)} />
+                                    <p className='exhibitionssmall'>{info.poster.caption}</p>
+                                </div>
                             </div>
                         </div>
                     )

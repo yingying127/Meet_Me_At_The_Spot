@@ -24,6 +24,8 @@ import ArtInstituteOfChicago from './ArtInstituteOfChicago';
 import ArtInstituteOfChicagoExhibition from './ArtInstituteOfChicagoExhibition';
 import CooperHewitt from './CooperHewitt';
 import Met from './Met';
+import Europeana from './Europeana';
+import Louvre from './Louvre';
 
 class Routes extends Component {
     constructor() {
@@ -32,6 +34,7 @@ class Routes extends Component {
             harvard: [],
             chicago: [],
             smith: [],
+            louvre: []
         }
     }
     componentDidMount() {
@@ -41,16 +44,22 @@ class Routes extends Component {
             this.setState({ harvard: data })
             // console.log(data.records, 'harvard')
         })
-        fetch('https://api.artic.edu/api/v1/exhibitions/search?query[term][is_featured]=true&limit=50&fields=id,title,aic_end_at,aic_start_at,image_url,short_description,web_url,artist_ids,artworks_ids,artwork_titles,is_featured/manifest.json')
+        fetch('https://api.artic.edu/api/v1/exhibitions/search?query[term][is_featured]=true&limit=50&fields=id,title,aic_end_at,aic_start_at,image_url,description,short_description,web_url,artworks_ids,artwork_titles,is_featured/manifest.json')
         .then(res => res.json())
         .then((data) => {
             this.setState({ chicago: data })
+            // console.log(data, 'real chicago')
         })
         fetch('https://collectionapi.metmuseum.org/public/collection/v1/objects?fields=title')
         .then(res => res.json())
         .then((data) => {
             this.setState({ met: data })
             // console.log(data, 'met')
+        })
+        fetch('https://collections.louvre.fr/ark:/53355/cl010061995.json', {mode: "no-cors"})
+        .then((data) => {
+            this.setState({ louvre: data })
+            // console.log(data, 'louvreee')
         })
         // fetch('https://api.si.edu/openaccess/api/v1.0/content/:id&api_key=Si4jTeolK75j8qglHIg5Zdb3SD4eBlegILEAdYXe')
         // //Si4jTeolK75j8qglHIg5Zdb3SD4eBlegILEAdYXe
@@ -65,6 +74,7 @@ class Routes extends Component {
     render() {
         const { info, records } = this.state.harvard;
         const { pagination, data } = this.state.chicago
+        // const harvard1 = this.state.harvard1
         return (
             <div>
                 <Switch>
@@ -88,6 +98,12 @@ class Routes extends Component {
                     </Route>
                     <Route exact path='/met'>
                         <Met />
+                    </Route>
+                    <Route exact path='/europeana'>
+                        <Europeana />
+                    </Route>
+                    <Route exac path='/louvre'>
+                        <Louvre />
                     </Route>
                     <Redirect to='/home' />
                 </Switch>

@@ -16,11 +16,11 @@ const Home = () => {
                     </Link>
                 </div>
                 <div className='row flex-container museum-box'>
-                    <div className='column column-right'>
-                        <Link to='/aic'>
+                    <div className='column column-right3'>
+                        <Link to='/louvre'>
                             <div className='bg-layer'>
-                                <h2>The Art Institute of Chicago</h2>
-                                <p>Chicago, IL</p>
+                                <h2>Louvre</h2>
+                                <p>Paris, France</p>
                             </div>
                         </Link>
                     </div>
@@ -41,6 +41,26 @@ const Home = () => {
                             <div className='bg-layer'>
                                 <h2>Metropolitan Museum of Art</h2>
                                 <p>New York, NY</p>
+                            </div>
+                        </Link>
+                    </div>
+                </div>
+            </div>
+            <div className='row flex-container museum-box'>
+                <div className='column column-left3'>
+                    <Link to='/europeana'>
+                        <div className='bg-layer'>
+                            <h2>Europeana</h2>
+                            <p>Virtual</p>
+                        </div>
+                    </Link>
+                </div>
+                <div className='row flex-container museum-box'>
+                    <div className='column column-right'>
+                        <Link to='/aic'>
+                            <div className='bg-layer'>
+                                <h2>The Art Institute of Chicago</h2>
+                                <p>Chicago, IL</p>
                             </div>
                         </Link>
                     </div>

@@ -59,6 +59,19 @@ p {
     background-position: center;
 }
 
+
+.museum-box .column-left3 {
+    background: url("/images/Europeana.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.museum-box .column-right3 {
+    background: url("/images/louvre.gif");
+    background-size: cover;
+    background-position: center;
+}
+
 .museum-box h2 {
     color: #ffffff;
     text-align: center;
@@ -74,7 +87,7 @@ p {
 
 .bg-layer {
     background-color: rgba(0, 0, 0, 0.2);
-    padding: 160px;
+    padding: 150px;
     transition: 0.2sec;
 }
 
@@ -103,19 +116,36 @@ p {
     text-decoration-thickness: 3px;
 }
 
-.exhibitionsp {
+.exhibitions-container {
     text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 2rem;
+    align-items: center;
 }
 
 .exhibitionssmall {
-    font-size: smaller;
-    padding: 0 300px 0 300px;
-    margin: 0;
+    font-size: 10px;
+    inline-size: 450px;
 }
 
 .exhibitionsimage {
-    width: 700px;
+    width: 450px;
     height: auto;
+}
+
+.exhibitions-text {
+    font-size: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    inline-size: 400px;
+    margin: 1rem;
+}
+
+.exhibitions-texts {
+    font-size: 14px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    inline-size: 400px;
+    margin: 0;
 }
 
 .record {
@@ -167,42 +197,5 @@ img {
 }
 
 .container:hover .overlay {
-opacity: 1;
-}
-
-/* trying out stuff */
-
-/* img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
-.overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0;
-    transition: .5s ease;
-    background-color: #008CBA;
-  }
-  
-  .container:hover .overlay {
     opacity: 1;
-  }
-  
-  .centered {
-    color: white;
-    font-size: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    text-align: center;
-  } */
+}
