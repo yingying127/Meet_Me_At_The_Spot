@@ -7,6 +7,15 @@
     font-size: 50px;
     margin: 10px;
     padding: 10px;
+    font-weight:normal;
+}
+
+.title-spot {
+    text-decoration: line-through hsl(0, 0%, 50%);
+    text-decoration-thickness: 3px;
+    color: cornflowerblue;
+    font-weight: lighter;
+    font-style: oblique;
 }
 
 a {
@@ -17,10 +26,9 @@ a {
 /** Home Page **/
 .flex-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-direction: row;
-    margin: 0 5px 0 5px;
-    
+    margin: 0 2rem 1rem 2rem;
 }
 
 .museum-box .column-left {
@@ -35,9 +43,29 @@ a {
     background-position: center;
 }
 
+.museum-box .column-left2 {
+    background: url("/images/cooper.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.museum-box .column-right2 {
+    background: url("/images/met.webp");
+    background-size: cover;
+    background-position: center;
+}
+
 .museum-box h2 {
     color: #ffffff;
     text-align: center;
+    margin: 0;
+}
+
+.museum-box p {
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+    margin: 2px;
 }
 
 .bg-layer {
@@ -51,12 +79,108 @@ a {
 }
 
 /** Exhibitions **/
-.exhibition-box {
+.exhibitions {
+    font-size: 25px;
+    font-weight: 250;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0 0 1rem 0;
+    font-style: oblique;
+}
+
+.exhibitions2 {
+    font-size: 35px;
+    font-weight: 250;
+    text-align: center;
+    margin: 0 0 1rem 0;
+    font-style: oblique;
+}
+
+.record {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.record .container {
+    flex: 1 1 25%;
+    text-align: center;
+    /* box-sizing: border-box;
+    border: .5px dashed hsl(0, 0%, 90%); */
+    padding: 10px;
 }
 
 img {
-    width: 250px;
-    height: auto;
+    width: 80%;
 }
+
+.container {
+    position: relative;
+    color: white;
+}
+
+.centered {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 400;
+    margin: 0 10px 10px 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgba(230, 230, 230, 0.7);
+}
+
+.container:hover .overlay {
+opacity: 1;
+}
+
+/* trying out stuff */
+
+/* img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;
+  }
+  
+  .container:hover .overlay {
+    opacity: 1;
+  }
+  
+  .centered {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  } */

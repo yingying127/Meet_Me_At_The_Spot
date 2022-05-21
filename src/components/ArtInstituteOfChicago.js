@@ -10,17 +10,27 @@ const ArtInstituteOfChicago = ({ pagination, data }) => {
     today = mm + '/' + dd + '/' + yyyy;
     return (
         <div>
-            <h2>Current Exhibitions({pagination?.total}) as of {today}</h2>
-            {data?.map(record => {
-                return (
-                    <div key={record.id} className='exhibition box'>
-                        <Link to={`/aic/${record.id}`}>
-                            <h2>{ record.title }</h2>
-                            <img src={record.image_url}></img>
-                        </Link>
-                    </div>
-                )
-            })}
+            <div>
+                <h1 className='title'>Meet Me at the <Link to='/home'>
+                    <span className='title-spot'> Spot</span></Link>
+                    <span>  The Art Institute of Chicago</span>
+                </h1>
+            </div>
+            <h2 className='exhibitions'>{pagination?.total} exhibitions displaying (as of {today})</h2>
+            <div className='record'>
+                {data?.map(record => {
+                    return (
+                        <div key={record.id} className='container'>
+                            <Link to={`/aic/${record.id}`}>
+                                <img src={record.image_url}></img>
+                                <div className='overlay'>
+                                    <h2 className='centered'>{ record.title }</h2>
+                                </div>
+                            </Link>
+                        </div>
+                    )
+                })}
+            </div>
         </div>
     )
 }

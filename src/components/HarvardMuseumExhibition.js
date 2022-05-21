@@ -1,20 +1,28 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const HarvardMuseumExhibition = ({ records, match }) => {
     const record = records?.filter(record => record.id === match.params.id*1)
     // console.log(record, 'record')
     return (
         <div>
+            <div>
+                <h1 className='title'>Meet Me at the <Link to='/home'>
+                    <span className='title-spot'> Spot</span></Link>
+                    <span>   Harvard Art Museum Exhibitions</span>
+                </h1>
+            </div>
             {record?.map(info => {
                 return (
                     <div key={ info.id }>
-                        <a href={ info.url } target='_blank'><h2>Exhibition {info.title}</h2></a>
-                        <h2>
+                        
+                        <a href={ info.url } target='_blank'><h2 className='exhibitions2'> {info.title}</h2></a>
+                        <p>
                             { info.people?.length > 1 ? 
                                 'Curated By ' + info.people?.map(person => person.name).join(' and ')
                                 : info.people?.map(person => person.name)
                             }
-                        </h2>
+                        </p>
                         <p>Available at Harvard Art Museum between {info.begindate} through {info.enddate}</p>
                         <img src={info.images.map(image => image.baseimageurl)} />
                         <p>{info.poster.caption}</p>

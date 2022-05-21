@@ -1,10 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ArtInstituteOfChicagoExhibition = ({ data, match }) => {
     const exhibition = data?.filter(record => record.id === match.params.id*1)
     console.log(exhibition, 'exhibit')
     return (
         <div>
+            <div>
+                <h1 className='title'>Meet Me at the <Link to='/home'>
+                    <span className='title-spot'> Spot</span></Link>
+                    <span>  The Art Institute of Chicago</span>
+                </h1>
+            </div>
             {
                 exhibition?.map(info => {
                     return (

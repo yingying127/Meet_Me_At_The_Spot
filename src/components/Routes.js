@@ -29,7 +29,7 @@ class Routes extends Component {
         this.state = {
             harvard: [],
             chicago: [],
-            test: []
+            smith: [],
         }
     }
     componentDidMount() {
@@ -37,12 +37,26 @@ class Routes extends Component {
         .then(res => res.json())
         .then((data) => {
             this.setState({ harvard: data })
+            console.log(data.records, 'harvard')
         })
         fetch('https://api.artic.edu/api/v1/exhibitions/search?query[term][is_featured]=true&limit=50&fields=id,title,aic_end_at,aic_start_at,image_url,short_description,web_url,artist_ids,artworks_ids,artwork_titles,is_featured/manifest.json')
         .then(res => res.json())
         .then((data) => {
             this.setState({ chicago: data })
         })
+        fetch('https://collectionapi.metmuseum.org/public/collection/v1/objects?fields=title')
+        .then(res => res.json())
+        .then((data) => {
+            this.setState({ met: data })
+            // console.log(data, 'met')
+        })
+        // fetch('https://api.si.edu/openaccess/api/v1.0/content/:id&api_key=Si4jTeolK75j8qglHIg5Zdb3SD4eBlegILEAdYXe')
+        // //Si4jTeolK75j8qglHIg5Zdb3SD4eBlegILEAdYXe
+        // .then(res => res.json())
+        // .then((data) => {
+        //     this.setState({ smith: data })
+        //     console.log(data, 'smith')
+        // })
         .catch(console.log)
         
     }
@@ -51,7 +65,6 @@ class Routes extends Component {
         const { pagination, data } = this.state.chicago
         return (
             <div>
-                <h1 className='title'><Link to='/home'>Meet Me at the Spot</Link></h1>
                 <Switch>
                     <Route path='/home'>
                         <Home />

@@ -9,19 +9,27 @@ const HarvardMuseum = ({ info, records }) => {
     today = mm + '/' + dd + '/' + yyyy;
     return (
         <div>
-            <h2>Current Exhibitions({info?.totalrecords}) as of {today}</h2>
-            {records?.map(record => {
+            <div>
+                <h1 className='title'>Meet Me at the <Link to='/home'>
+                    <span className='title-spot'> Spot</span></Link>
+                    <span>   Harvard Art Museum</span>
+                </h1>
+            </div>
+            <h2 className='exhibitions'>{info?.totalrecords} exhibitions displaying (as of {today})</h2>
+            <div className='record'>
+                {records?.map(record => {
                     return (
-                        <div key={record.id}>
-                            <div className='exhibition box'>
-                                <Link to={`/harvardmuseum/${record.id}`}>
-                                    <h2>{ record.title }</h2>
-                                    <img src={record.images.map(image => image.baseimageurl)}></img>
-                                </Link>
-                            </div>
+                        <div className='container' key={record.id}>
+                            <Link to={`/harvardmuseum/${record.id}`}>
+                                <img src={record.images.map(image => image.baseimageurl)}></img>
+                                <div class='overlay'>
+                                <h2 className='centered'>{ record.title }</h2>
+                                </div>
+                            </Link>
                         </div>
                     )
                 })}
+            </div>
         </div>
     )
 }
