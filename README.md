@@ -7,4 +7,5 @@ Whenever I travel, I enjoy exploring the local museums and seeing what history l
 Each museum has a different API with different data. I was able to fetch public data that had exhibitions and showcase it here.
 
 You can view my website on https://meet-me-at-the-spot.herokuapp.com/#/home
+
 (Working museums: Harvard Art Museum | The Art Institute of Chicago)
