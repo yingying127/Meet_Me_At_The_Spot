@@ -19,7 +19,17 @@ module.exports = {
         options: {
           presets: ['@babel/preset-react']
         }
-      }
+      },
+      {
+        test: /\.css$/i,
+        use: [
+          {
+            loader: "style-loader",
+            options: { injectType: "singletonStyleTag" },
+          },
+          "css-loader",
+        ],
+      },
     ]
   },
   plugins: [
