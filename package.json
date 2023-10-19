@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "build": "webpack",
+    "build": "webpack --mode production",
     "build:dev": "webpack --watch --mode=development",
     "start:dev": "nodemon server --ignore src/ --ignore dist/ & npm run build:dev"
   },
