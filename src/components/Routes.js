@@ -25,7 +25,7 @@ class Routes extends Component {
         .then(res => res.json())
         .then((data) => {
             this.setState({ harvard: data })
-            // console.log(data.records, 'harvard')
+            // console.log(data, 'harvard')
         })
         fetch('https://api.artic.edu/api/v1/exhibitions/search?query[term][is_featured]=true&limit=50&fields=id,title,aic_end_at,aic_start_at,image_url,description,short_description,web_url,artworks_ids,artwork_titles,is_featured/manifest.json')
         .then(res => res.json())
@@ -33,16 +33,19 @@ class Routes extends Component {
             this.setState({ chicago: data })
             // console.log(data, 'real chicago')
         })
-        // fetch('https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.exhibitions.getList&access_token=d9a34c3816794edfc8b8bd433313f42c')
-        fetch('https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.exhibitions.getObjects&access_token=d9a34c3816794edfc8b8bd433313f42c&query=<QUERY> &on_display=1 &per_page=500')
-
-            //curl -X GET 'https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.exhibitions.getObjects&access_token=<TOKEN>&query=<QUERY> &accession_number=<ACCESSION_NUMBER> &color=<COLOR> &department_id=<DEPARTMENT_ID> &description=<DESCRIPTION> &on_display=<ON_DISPLAY> &display_date=<DISPLAY_DATE> &exhibition=<EXHIBITION> &exhibition_id=<EXHIBITION_ID> &has_images=<HAS_IMAGES> &has_no_known_copyright=<HAS_NO_KNOWN_COPYRIGHT> &justification=<JUSTIFICATION> &location=<LOCATION> &woe_id=<WOE_ID> &medium=<MEDIUM> &medium_id=<MEDIUM_ID> &period=<PERIOD> &period_id=<PERIOD_ID> &person=<PERSON> &person_id=<PERSON_ID> &role=<ROLE> &role_id=<ROLE_ID> &person_role_id=<PERSON_ROLE_ID> &tag=<TAG> &tag_id=<TAG_ID> &title=<TITLE> &type=<TYPE> &type_id=<TYPE_ID> &year_acquired=<YEAR_ACQUIRED> &year_end=<YEAR_END> &year_start=<YEAR_START> &width=<WIDTH> &height=<HEIGHT> &depth=<DEPTH> &longestside=<LONGESTSIDE> &shortestside=<SHORTESTSIDE>'
-
+        fetch('https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.exhibitions.getList&access_token=d9a34c3816794edfc8b8bd433313f42c')
         .then(res => res.json())
         .then((data) => {
-            this.setState({ cooper: data})
-            console.log(data, 'cooper')
-            //d9a34c3816794edfc8b8bd433313f42c≈
+            const activeData = data.exhibitions.filter(exhibition => exhibition.is_active === "1")
+            this.setState({ cooper: activeData})
+            // console.log(activeData, 'cooper1')
+
+        // fetch('https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.exhibitions.getObjects&access_token=d9a34c3816794edfc8b8bd433313f42c&on_display=1')
+        // .then(res => res.json())
+        // .then((data) => {
+        //     this.setState({ cooper: data})
+        //     console.log(data.objects.filter(e => e.on_display === "1"), 'active')
+
         })
 
         // fetch('https://collectionapi.metmuseum.org/public/collection/v1/objects?fields=title')
@@ -68,8 +71,8 @@ class Routes extends Component {
     }
     render() {
         const { info, records } = this.state.harvard;
-        const { pagination, data } = this.state.chicago
-        // const harvard1 = this.state.harvard1
+        const { pagination, data } = this.state.chicago;
+        const exhibitions = this.state.cooper;
         return (
             <div>
                 <Switch>
@@ -89,7 +92,7 @@ class Routes extends Component {
                         {({match}) => <ArtInstituteOfChicagoExhibition data={data} match={match} />}
                     </Route>
                     <Route exact path='/cooperhewitt'>
-                        <CooperHewitt />
+                        <CooperHewitt exhibitions={exhibitions}/>
                     </Route>
                     <Route exact path='/met'>
                         <Met />
