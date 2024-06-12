@@ -12,7 +12,7 @@ const CooperHewitt = ({  }) => {
             <div>
                 <h1 className='title'>Meet Me at the <Link to='/home'>
                     <span className='title-spot'> Spot</span></Link>
-                    <span>   Cooper Hewitt</span>
+                    <span>   Cooper Hewitts</span>
                 </h1>
             </div>
             <h2 className='exhibitions'>exhibitions tbd</h2>
