@@ -7,6 +7,7 @@ import HarvardMuseumExhibition from './HarvardMuseumExhibition';
 import ArtInstituteOfChicago from './ArtInstituteOfChicago';
 import ArtInstituteOfChicagoExhibition from './ArtInstituteOfChicagoExhibition';
 import CooperHewitt from './CooperHewitt';
+import CooperHewittExhibition from './CooperHewittExhibition';
 import Met from './Met';
 import Europeana from './Europeana';
 import Louvre from './Louvre';
@@ -39,13 +40,6 @@ class Routes extends Component {
             const activeData = data.exhibitions.filter(exhibition => exhibition.is_active === "1")
             this.setState({ cooper: activeData})
             // console.log(activeData, 'cooper1')
-
-        // fetch('https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.exhibitions.getObjects&access_token=d9a34c3816794edfc8b8bd433313f42c&on_display=1')
-        // .then(res => res.json())
-        // .then((data) => {
-        //     this.setState({ cooper: data})
-        //     console.log(data.objects.filter(e => e.on_display === "1"), 'active')
-
         })
 
         // fetch('https://collectionapi.metmuseum.org/public/collection/v1/objects?fields=title')
@@ -72,28 +66,35 @@ class Routes extends Component {
     render() {
         const { info, records } = this.state.harvard;
         const { pagination, data } = this.state.chicago;
-        const exhibitions = this.state.cooper;
+        const exhibition = this.state.cooper;
         return (
             <div>
                 <Switch>
                     <Route path='/home'>
                         <Home />
                     </Route>
+
                     <Route exact path='/harvardmuseum'>
                         <HarvardMuseum info={info} records={records} />
                     </Route>
                     <Route exact path='/harvardmuseum/:id'>
                         {({match}) => <HarvardMuseumExhibition records={records} match={match} />}
                     </Route>
+
                     <Route exact path='/aic'>
                         <ArtInstituteOfChicago pagination={pagination} data={data} />
                     </Route>
                     <Route exact path='/aic/:id'>
                         {({match}) => <ArtInstituteOfChicagoExhibition data={data} match={match} />}
                     </Route>
+
                     <Route exact path='/cooperhewitt'>
-                        <CooperHewitt exhibitions={exhibitions}/>
+                        <CooperHewitt exhibition={exhibition}/>
                     </Route>
+                    <Route exact path='/cooperhewitt/:id'>
+                        {({match}) => <CooperHewittExhibition exhibition={exhibition} />}
+                    </Route>
+
                     <Route exact path='/met'>
                         <Met />
                     </Route>
