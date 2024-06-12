@@ -30,7 +30,7 @@ const CooperHewitt = ({ exhibitions }) => {
                     return (
                         <div key={record.id} className='container'>
                             <Link to={`/cooperhewitt/${record.id}`}>
-                                <img src='public/images/inprogress.png'></img>
+                                <img src="https://i.imgur.com/HCPfJ2m.png"></img>
                                 <div className='overlay'>
                                     <h2 className='centered'>{ record.title }</h2>
                                 </div>
