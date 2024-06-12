@@ -170,19 +170,6 @@ img {
     color: white;
 }
 
-.cooper-container {
-    position: relative;
-    /* background: url("/images/inprogress.png");
-    background-size: center;
-    background-position:center; */
-}
-
-.cooper-container img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
 .centered {
     text-align: center;
     font-size: 25px;

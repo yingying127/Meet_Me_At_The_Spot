@@ -29,23 +29,15 @@ const CooperHewitt = ({ exhibitions }) => {
                 {currentExhibitions?.map(record => {
                     return (
                         <div key={record.id} className='container'>
-                            <div className='cooper-container'>
-                                <img src='public/images/inprogress.png' alt="In Progress" />
-                                </div>
-                        </div>
-                    )
-                })}
-                {/* {currentExhibitions?.map(record => {
-                    return (
-                        <div key={record.id} className='container'>
                             <Link to={`/cooperhewitt/${record.id}`}>
-                                <div className="overlay">
-                                    <h2 className="centered">{ record.title }</h2>
+                                <img src='public/images/inprogress.png'></img>
+                                <div className='overlay'>
+                                    <h2 className='centered'>{ record.title }</h2>
                                 </div>
                             </Link>
                         </div>
                     )
-                })} */}
+                })}
             </div>
         </div>
     )
