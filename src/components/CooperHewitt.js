@@ -7,15 +7,6 @@ const CooperHewitt = ({ exhibition }) => {
     const mm = String(today.getMonth() + 1).padStart(2, '0');
     const yyyy = today.getFullYear();
     today = mm + '/' + dd + '/' + yyyy;
-
-    const matchingExhibitionTodayDate = `${yyyy}-${mm}-${dd}`
-    //this is so we can check the exhibiton date with our current date
-
-    const currentExhibition = exhibition.filter(e => {
-        const exhibitionEndDate = e.date_end;
-        return exhibitionEndDate > matchingExhibitionTodayDate
-    })
-    console.log(currentExhibition, 'current????')
     return (
         <div>
             <div>
@@ -24,9 +15,9 @@ const CooperHewitt = ({ exhibition }) => {
                     <span>   Cooper Hewitt</span>
                 </h1>
             </div>
-            <h2 className='exhibitions'>{currentExhibition?.length} exhibitions displaying (as of {today})</h2>
+            <h2 className='exhibitions'>{exhibition?.length} exhibitions displaying (as of {today})</h2>
             <div className='record'>
-                {currentExhibition?.map(record => {
+                {exhibition?.map(record => {
                     return (
                         <div key={record.id} className='container'>
                             <Link to={`/cooperhewitt/${record.id}`}>

@@ -38,8 +38,14 @@ class Routes extends Component {
         .then(res => res.json())
         .then((data) => {
             const activeData = data.exhibitions.filter(exhibition => exhibition.is_active === "1")
-            this.setState({ cooper: activeData})
-            // console.log(activeData, 'cooper1')
+            //because cooper does not filter through old exhibitions, here is a possible way to:
+            const today = new Date().toISOString().slice(0, 10); //cooper api date format
+            const currentExhibition = activeData.filter(e => {
+                const exhibitionEndDate = e.date_end;
+                return exhibitionEndDate > today
+            })
+            this.setState({ cooper: currentExhibition})
+            // console.log(currentExhibition, 'cooper1')
         })
 
         // fetch('https://collectionapi.metmuseum.org/public/collection/v1/objects?fields=title')
@@ -92,7 +98,7 @@ class Routes extends Component {
                         <CooperHewitt exhibition={exhibition}/>
                     </Route>
                     <Route exact path='/cooperhewitt/:id'>
-                        {({match}) => <CooperHewittExhibition exhibition={exhibition} />}
+                        {({match}) => <CooperHewittExhibition exhibition={exhibition} match={match} />}
                     </Route>
 
                     <Route exact path='/met'>

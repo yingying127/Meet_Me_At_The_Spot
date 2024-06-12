@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 const HarvardMuseumExhibition = ({ records, match }) => {
     const record = records?.filter(record => record.id === match.params.id*1)
-    // console.log(record, 'record')
+    console.log(record, 'record')
     return (
         <div>
             <div>
-                <h1 className='title'>Meet Me at the <Link to='/home'>
+                <h1 className='title'>Meet Me at the <Link to='/harvardmuseum'>
                     <span className='title-spot'> Spot</span></Link>
                     <span>   <Link to='/harvardmuseum'>Harvard Art Museum</Link> Exhibitions</span>
                 </h1>
