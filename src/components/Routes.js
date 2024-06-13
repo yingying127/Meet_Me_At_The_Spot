@@ -48,12 +48,13 @@ class Routes extends Component {
             // console.log(currentExhibition, 'cooper1')
         })
 
-        // fetch('https://collectionapi.metmuseum.org/public/collection/v1/objects?fields=title')
-        // .then(res => res.json())
-        // .then((data) => {
-        //     this.setState({ met: data })
-        //     // console.log(data, 'met')
-        // })
+        fetch('https://collectionapi.metmuseum.org/public/collection/v1/search?q=[]')
+        .then(res => res.json())
+        .then((data) => {
+            this.setState({ met: data })
+            console.log(data, 'met')
+        })
+        
         // fetch('https://collections.louvre.fr/ark:/53355/cl010061995.json', {mode: "no-cors"})
         // .then((data) => {
         //     this.setState({ louvre: data })

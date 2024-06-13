@@ -48,12 +48,12 @@ const Home = () => {
             </div>
             <div className='row flex-container museum-box'>
                 <div className='column column-left3'>
-                    <Link to='/europeana'>
+                    {/* <Link to='/europeana'>
                         <div className='bg-layer'>
                             <h2>Europeana</h2>
                             <p>Virtual</p>
                         </div>
-                    </Link>
+                    </Link> */}
                 </div>
                 <div className='row flex-container museum-box'>
                     <div className='column column-right'>
