@@ -48,7 +48,7 @@ class Routes extends Component {
             // console.log(currentExhibition, 'cooper1')
         })
 
-        fetch('https://collectionapi.metmuseum.org/public/collection/v1/search?q=[]')
+        fetch('https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}')
         .then(res => res.json())
         .then((data) => {
             this.setState({ met: data })

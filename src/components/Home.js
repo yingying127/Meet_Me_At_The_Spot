@@ -15,12 +15,22 @@ const Home = () => {
                         </div>
                     </Link>
                 </div>
-                <div className='row flex-container museum-box'>
+                {/* <div className='row flex-container museum-box'>
                     <div className='column column-right3'>
                         <Link to='/louvre'>
                             <div className='bg-layer'>
                                 <h2>Louvre</h2>
                                 <p>Paris, France</p>
+                            </div>
+                        </Link>
+                    </div>
+                </div> */}
+                <div className='row flex-container museum-box'>
+                    <div className='column column-right3'>
+                        <Link to='/aic'>
+                            <div className='bg-layer'>
+                                <h2>The Art Institute of Chicago</h2>
+                                <p>Chicago, IL</p>
                             </div>
                         </Link>
                     </div>
@@ -55,7 +65,7 @@ const Home = () => {
                         </div>
                     </Link> */}
                 </div>
-                <div className='row flex-container museum-box'>
+                {/* <div className='row flex-container museum-box'>
                     <div className='column column-right'>
                         <Link to='/aic'>
                             <div className='bg-layer'>
@@ -64,7 +74,7 @@ const Home = () => {
                             </div>
                         </Link>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     )

@@ -66,9 +66,15 @@ p {
     background-position: center;
 }
 
-.museum-box .column-right3 {
+/* .museum-box .column-right3 {
     background: url("/images/louvre.gif");
     background-size: cover;
+    background-position: center;
+} */
+
+.museum-box .column-right3 {
+    background: url("/images/chicago.gif");
+    background-size: auto;
     background-position: center;
 }
 
