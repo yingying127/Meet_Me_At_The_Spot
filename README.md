@@ -8,4 +8,4 @@ Each museum has a different API with different data. I was able to fetch public 
 
 You can view my website on https://meet-me-at-the-spot.netlify.app/#/home
 
-(Working museums: Harvard Art Museum | The Art Institute of Chicago)
+(Working museums: Harvard Art Museum | The Art Institute of Chicago | Cooper Hewitt)
