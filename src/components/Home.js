@@ -15,16 +15,6 @@ const Home = () => {
                         </div>
                     </Link>
                 </div>
-                {/* <div className='row flex-container museum-box'>
-                    <div className='column column-right3'>
-                        <Link to='/louvre'>
-                            <div className='bg-layer'>
-                                <h2>Louvre</h2>
-                                <p>Paris, France</p>
-                            </div>
-                        </Link>
-                    </div>
-                </div> */}
                 <div className='row flex-container museum-box'>
                     <div className='column column-right3'>
                         <Link to='/aic'>
@@ -47,34 +37,14 @@ const Home = () => {
                 </div>
                 <div className='row flex-container museum-box'>
                     <div className='column column-right2'>
-                        <Link to='/met'>
+                        <Link to='/brooklynmuseum'>
                             <div className='bg-layer'>
-                                <h2>Metropolitan Museum of Art</h2>
-                                <p>New York, NY</p>
+                                <h2>Brooklyn Museum</h2>
+                                <p>Brooklyn, NY</p>
                             </div>
                         </Link>
                     </div>
                 </div>
-            </div>
-            <div className='row flex-container museum-box'>
-                <div className='column column-left3'>
-                    {/* <Link to='/europeana'>
-                        <div className='bg-layer'>
-                            <h2>Europeana</h2>
-                            <p>Virtual</p>
-                        </div>
-                    </Link> */}
-                </div>
-                {/* <div className='row flex-container museum-box'>
-                    <div className='column column-right'>
-                        <Link to='/aic'>
-                            <div className='bg-layer'>
-                                <h2>The Art Institute of Chicago</h2>
-                                <p>Chicago, IL</p>
-                            </div>
-                        </Link>
-                    </div>
-                </div> */}
             </div>
         </div>
     )

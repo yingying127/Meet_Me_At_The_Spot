@@ -9,8 +9,7 @@ import ArtInstituteOfChicagoExhibition from './ArtInstituteOfChicagoExhibition';
 import CooperHewitt from './CooperHewitt';
 import CooperHewittExhibition from './CooperHewittExhibition';
 import Met from './Met';
-import Europeana from './Europeana';
-import Louvre from './Louvre';
+import BrooklynMuseum from './BrooklynMuseum';
 
 class Routes extends Component {
     constructor() {
@@ -18,7 +17,8 @@ class Routes extends Component {
         this.state = {
             harvard: [],
             chicago: [],
-            cooper: []
+            cooper: [],
+            brooklyn: []
         }
     }
     componentDidMount() {
@@ -48,25 +48,13 @@ class Routes extends Component {
             // console.log(currentExhibition, 'cooper1')
         })
 
-        fetch('https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}')
-        .then(res => res.json())
-        .then((data) => {
-            this.setState({ met: data })
-            console.log(data, 'met')
-        })
-        
-        // fetch('https://collections.louvre.fr/ark:/53355/cl010061995.json', {mode: "no-cors"})
-        // .then((data) => {
-        //     this.setState({ louvre: data })
-        //     // console.log(data, 'louvreee')
-        // })
-        // // fetch('https://api.si.edu/openaccess/api/v1.0/content/:id&api_key=Si4jTeolK75j8qglHIg5Zdb3SD4eBlegILEAdYXe')
-        // //Si4jTeolK75j8qglHIg5Zdb3SD4eBlegILEAdYXe
+        // fetch('https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}')
         // .then(res => res.json())
         // .then((data) => {
-        //     this.setState({ smith: data })
-        //     console.log(data, 'smith')
+        //     this.setState({ met: data })
+        //     console.log(data, 'met')
         // })
+
         .catch(console.log)
         
     }
@@ -101,16 +89,13 @@ class Routes extends Component {
                     <Route exact path='/cooperhewitt/:id'>
                         {({match}) => <CooperHewittExhibition exhibition={exhibition} match={match} />}
                     </Route>
-
+                    <Route exact path='/brooklynmuseum'>
+                        <BrooklynMuseum />
+                    </Route>
+{/* 
                     <Route exact path='/met'>
                         <Met />
-                    </Route>
-                    <Route exact path='/europeana'>
-                        <Europeana />
-                    </Route>
-                    <Route exac path='/louvre'>
-                        <Louvre />
-                    </Route>
+                    </Route> */}
                     <Redirect to='/home' />
                 </Switch>
             </div>
