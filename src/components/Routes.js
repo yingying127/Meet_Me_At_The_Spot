@@ -10,6 +10,7 @@ import CooperHewitt from './CooperHewitt';
 import CooperHewittExhibition from './CooperHewittExhibition';
 import Met from './Met';
 import BrooklynMuseum from './BrooklynMuseum';
+import BrooklynMuseumExhibition from './BrooklynMuseumExhibition'
 
 class Routes extends Component {
     constructor() {
@@ -56,7 +57,7 @@ class Routes extends Component {
         .then((data) => {
             const brooklynkdata = data.data
             this.setState({ brooklyn: brooklynkdata })
-            console.log(brooklynkdata, 'bk')
+            // console.log(brooklynkdata, 'bk')
         })
 
         .catch(console.log)
@@ -93,13 +94,14 @@ class Routes extends Component {
                     <Route exact path='/cooperhewitt/:id'>
                         {({match}) => <CooperHewittExhibition exhibition={exhibition} match={match} />}
                     </Route>
+
                     <Route exact path='/brooklynmuseum'>
                         <BrooklynMuseum brooklyndata={brooklyndata}/>
                     </Route>
-{/* 
-                    <Route exact path='/met'>
-                        <Met />
-                    </Route> */}
+                    <Route exact path='/brooklynmuseum/:id'>
+                        {({match}) => <BrooklynMuseumExhibition brooklyndata={brooklyndata} match={match} />}
+                    </Route>
+                    
                     <Redirect to='/home' />
                 </Switch>
             </div>

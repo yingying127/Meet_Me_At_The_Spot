@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 const BrooklynMuseumExhibition = ({ brooklyndata, match }) => {
     const data = brooklyndata?.filter(data => data.id === match.params.id*1)
+    console.log(data, 'data')
     return (
         <div>
             <div>
@@ -16,16 +17,18 @@ const BrooklynMuseumExhibition = ({ brooklyndata, match }) => {
                     return (
                         <div key={info.id}>
                             <a href='https://www.brooklynmuseum.org/exhibitions' target='_blank'>
-                                <h2 className='exhibitions2'>{info.title}</h2>
+                                <h2 className='exhibitions2'>
+                                    {info.title}
+                                </h2>
                             </a>
                             <div className='exhibitions-container'>
                                 <div>
-                                    <p className='exhibitions-text'>Click on the title to learn more about this exhibition.</p>
+                                    <p className='exhibitions-texts'>Click on the title to learn more about this exhibition.</p>
                                 </div>
                             </div>
                             <div>
-                                <img className='exhibitionsimage' src='https://i.imgur.com/liI5Dco.jpeg' />
-                                <p className='exhibitionssmall'>Available at Brooklyn Museum between {info.display_date}</p>
+                                <img className='exhibitionsimagecenter' src='https://i.imgur.com/HCPfJ2m.png' />
+                                <p className='exhibitions-texts-center'>Available at Brooklyn Museum between: <br/> {info.display_date}</p>
                             </div>
                         </div>
                     )

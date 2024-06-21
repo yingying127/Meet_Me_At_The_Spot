@@ -121,6 +121,13 @@ p {
     height: auto;
 }
 
+.exhibitionsimagecenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+}
+
 .exhibitions-text {
     font-size: 30px;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -133,6 +140,13 @@ p {
     font-family: Georgia, 'Times New Roman', Times, serif;
     inline-size: 400px;
     margin: 0;
+}
+
+.exhibitions-texts-center {
+    font-size: 14px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 1rem;
+    text-align: center;
 }
 
 .record {
