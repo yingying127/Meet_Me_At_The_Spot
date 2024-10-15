@@ -10,6 +10,15 @@
     font-weight:normal;
 }
 
+.title-exhibition {
+    text-align: center;
+    font-size: 50px;
+    margin: 10px;
+    padding: 10px;
+    font-weight:lighter;
+    font-style: oblique;
+}
+
 .title-spot {
     text-decoration: line-through hsl(0, 0%, 50%);
     text-decoration-thickness: 3px;
@@ -41,12 +50,6 @@ p {
     background-position: center;
 }
 
-.museum-box .column-right {
-    background: url("/images/chicago.gif");
-    background-size: auto;
-    background-position: center;
-}
-
 .museum-box .column-left2 {
     background: url("/images/cooper.jpg");
     background-size: cover;
@@ -54,21 +57,14 @@ p {
 }
 
 .museum-box .column-right2 {
-    background: url("/images/met.webp");
-    background-size: cover;
-    background-position: center;
-}
-
-
-.museum-box .column-left3 {
-    background: url("/images/Europeana.jpg");
+    background: url("/images/brooklyn.webp");
     background-size: cover;
     background-position: center;
 }
 
 .museum-box .column-right3 {
-    background: url("/images/louvre.gif");
-    background-size: cover;
+    background: url("/images/chicago.gif");
+    background-size: auto;
     background-position: center;
 }
 
@@ -134,6 +130,13 @@ p {
     height: auto;
 }
 
+.exhibitionsimagecenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+}
+
 .exhibitions-text {
     font-size: 30px;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -146,6 +149,13 @@ p {
     font-family: Georgia, 'Times New Roman', Times, serif;
     inline-size: 400px;
     margin: 0;
+}
+
+.exhibitions-texts-center {
+    font-size: 14px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 1rem;
+    text-align: center;
 }
 
 .record {

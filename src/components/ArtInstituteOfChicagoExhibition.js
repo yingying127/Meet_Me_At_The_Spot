@@ -7,7 +7,7 @@ const ArtInstituteOfChicagoExhibition = ({ data, match }) => {
     return (
         <div>
             <div>
-                <h1 className='title'>Meet Me at the <Link to='/home'>
+                <h1 className='title'>Meet Me at the <Link to='/aic'>
                     <span className='title-spot'> Spot</span></Link>
                     <span>  <Link to='/aic'>The Art Institute of Chicago</Link> Exhibitions</span>
                 </h1>
